@@ -3,7 +3,7 @@ from fastapi import FastAPI, applications
 from tortoise.contrib.fastapi import register_tortoise
 
 from app.api import ping
-from project.app.db import init_db
+from app.db import init_db
 
 log = logging.getLogger('uvicorn')
 
