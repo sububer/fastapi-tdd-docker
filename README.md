@@ -43,4 +43,4 @@ docker-compose down -v
 
 ## License
 
-[MIT]('./LICENSE')
+[MIT](./LICENSE)
