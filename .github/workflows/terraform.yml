@@ -10,6 +10,9 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .infra
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -22,20 +25,20 @@ jobs:
 
       - name: Terraform Format
         id: fmt
-        run: terraform fmt -check .infra
+        run: terraform fmt -check
 
       - name: Terraform Init
         id: init
-        run: terraform init .infra/
+        run: terraform init
       
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color .infra/
+        run: terraform validate -no-color
 
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color .infra/
+        run: terraform plan -no-color
         continue-on-error: true
 
       - uses: actions/github-script@0.9.0
@@ -73,4 +76,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve .infra/
+        run: terraform apply -auto-approve
