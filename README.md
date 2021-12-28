@@ -8,7 +8,7 @@ simple fastapi app to play with docker and fast api mechanics
 
 You will need Python 3.9, docker, and docker-compose.
 
-Additionally, see [requirements](./project/requirements.txt) below for required modules.
+Additionally, see [requirements](./project/requirements.txt) below for required modules. 
 
 ---
 
